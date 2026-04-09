@@ -1,4 +1,7 @@
 # Wildfire Detection Using Vision Transformers
+![Python](https://img.shields.io/badge/Python-3.10-blue)
+![PyTorch](https://img.shields.io/badge/PyTorch-2.0-orange)
+![Accuracy](https://img.shields.io/badge/Binary%20Accuracy-97.8%25-green)
 
 This project explores the use of Vision Transformers (ViTs) for early wildfire detection through image classification. The cascading ViT model employed in this project improves the accuracy of fire and no-fire classification using multiple dedicated submodels.
 
@@ -7,6 +10,16 @@ This project explores the use of Vision Transformers (ViTs) for early wildfire d
 Wildfires pose significant risks to ecosystems and human life, and early detection is crucial for effective intervention. This project leverages the power of Vision Transformers (ViT) for wildfire image classification with the following goals:
 - Binary classification of images into **Fire** and **No-Fire**.
 - Subclassification of both fire and no-fire images into specific categories (e.g., smoke, fire, shadows).
+
+## Architecture
+
+The pipeline uses a two-stage cascading approach:
+1. A binary ViT classifier routes each image to Fire or No-Fire
+2. Dedicated subclass ViT models then isolate confounding visual elements 
+   (smoke, fog, shadows) within each branch
+
+This routing design was validated against 23 model variations including 
+Swin, DeiT, and BEiT architectures.
 
 ### Key Features
 - **Binary ViT Classifier**: Classifies images as fire or no-fire with an accuracy of 97.8%.
@@ -25,6 +38,15 @@ The model achieved the following metrics:
 - **Binary ViT Accuracy**: 97.8%
 - **Cascading Model Accuracy**: 88.54%
 - **Comparison with Dual-Dataset DL**: Outperformed existing models in accuracy and precision.
+
+## Results
+
+| Model | Accuracy | Precision | ROC-AUC |
+|---|---|---|---|
+| Binary ViT (ours) | 97.8% | — | 0.975 |
+| Cascading ViT (ours) | 88.54% | — | — |
+| Dual-Dataset DL Baseline | 95.7% | lower | lower |
+| CNN Baseline | ~95.7% | lower | lower |
 
 ## Final Models
 
