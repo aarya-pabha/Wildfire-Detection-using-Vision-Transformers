@@ -24,7 +24,6 @@ Swin, DeiT, and BEiT architectures.
 ### Key Features
 - **Binary ViT Classifier**: Classifies images as fire or no-fire with an accuracy of 97.8%.
 - **Cascading Submodels**: Dedicated ViT models further classify fire and no-fire subclasses, achieving an overall accuracy of 88.54%.
-- **Attention Visualization**: Heatmaps highlight the regions of images that contributed to model predictions, aiding in interpretability.
 
 ## Dataset
 
